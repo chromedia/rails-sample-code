@@ -1,0 +1,36 @@
+.footer
+  .main
+    .share
+      /a.social-media.facebook href='https://www.facebook.com/sharer/sharer.php?u=https://maxrevone.herokuapp.com' 
+      a.social-media href='https://www.facebook.com/maxrevone.tacloban' target='_blank' 
+        == image_tag 'facebook.svg'
+      /a.social-media.twitter href='https://twitter.com/share'
+      a.social-media href='https://twitter.com/MaxRevOne' target='blank'
+        == image_tag 'twitter.svg'
+    .copyright
+      .entity
+        | ©
+        span<> MaxRevOne
+        | 2014
+      .entity
+        | Powered by
+        span<> Infiniti Code Box
+        | , Inc.
+    .info
+      .contacts
+        .contact
+          i class='fa fa-phone'
+          | (053) 321 7699
+        .contact
+          i class='fa fa-mobile-phone'
+          | +63 939 354 1379 | +63 917 661 8236
+        .contact
+          i class='fa fa-envelope'
+          | maxrevonetacloban@yahoo.com
+      .address
+      | 3F Roqson Building, Rizal Avenue cor. Burgos St., Tacloban City, PH 6500
+  - if yield(:title) == 'Home' && !Rails.env.test?
+    script src='https://maps.google.com/maps/api/js?sensor=true'
+    == javascript_include_tag 'embedded_map'
+    == javascript_include_tag 'gmaps'
+    #map

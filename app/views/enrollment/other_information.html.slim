@@ -1,0 +1,27 @@
+= fields_for @student do|f|
+  .others data-desc='Other Information'
+    = render 'defaults', f: f
+    .form-horizontal.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.col-xs-12
+      .form-inline
+        label.control-label
+          i.fa.fa-facebook-square
+        = f.text_field :facebook, class: 'form-control', placeholder: 'Facebook'
+      .form-inline
+        label.control-label
+          i.fa.fa-twitter-square
+        = f.text_field :twitter, class: 'form-control', placeholder: 'Twitter'
+      .form-inline
+        label.control-label
+          i.fa.fa-linkedin-square
+        = f.text_field :linkedin, class: 'form-control', placeholder: 'Linkedin'
+      .form-inline
+        label.control-label Referred by
+        =  f.text_field  :referrer_first_name, class: 'form-control', placeholder: 'First name'
+        =  f.text_field  :referrer_last_name, class: 'form-control', placeholder: 'Last name'
+      .form-inline
+        label.control-label Contact
+        =  f.text_field  :referrer_contact, class: 'form-control'
+      .form-group
+        label.control-label.col-xs-12.auto-width Why did you choose MaxRevOne?
+      .form-group
+        .col-xs-12 = f.text_area :why, class: 'form-control'

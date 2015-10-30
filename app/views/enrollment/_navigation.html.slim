@@ -1,0 +1,12 @@
+.navigation.row
+  .text-right.col-lg-4.col-md-3.col-xs-2
+    a.btn.btn-default.previous href=(prev_wizard_link) = first_step? ? 'Cancel' : 'Back'
+  .indicators.col-lg-4.col-md-6.col-xs-8
+    .wrapper
+      - wizard_steps.each do|_step|
+        span.indicator class=('active' if active_indicator?(_step))
+  .text-left.col-lg-4.col-md-3.col-xs-2
+    span.paypal class=(paypal_class)
+      a.btn.btn-secondary href='#' Pay with PayPal
+      span or
+    button.btn.btn-primary.next type='submit' = next_button

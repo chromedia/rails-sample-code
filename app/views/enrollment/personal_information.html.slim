@@ -1,0 +1,41 @@
+= fields_for @student do |f|
+  .personal-information data-desc='Personal Information'
+    = render 'defaults', f: f
+    = f.hidden_field :package_type
+    .profile-pic.col-lg-2.col-md-3.col-sm-4
+      = image_tag @student.profile_pic, class: 'profile' if @student.has_profile_pic?
+      = image_tag placeholder_pic, class: 'profile' unless @student.has_profile_pic?
+      .upload
+        = f.hidden_field :clean, value: true, class: 'clean'
+        = f.file_field :profile_pic, class: 'preview hidden', accept: 'image/*'
+      a href='#' class='trigger-file-field' Upload Photo
+    .col-lg-10.col-md-9.col-sm-8.form-horizontal
+      .form-group
+        .col-sm-4 = f.text_field :first_name, class: 'form-control required', placeholder: 'First Name'
+        .col-sm-4 = f.text_field :middle_name, class: 'form-control', placeholder: 'Middle Name'
+        .col-sm-4 = f.text_field :last_name, class: 'form-control required', placeholder: 'Last Name'
+      .form-group
+        label.control-label.col-lg-2.col-md-3.col-sm-4 Birthdate
+        .col-lg-2.col-md-3.col-sm-4 = f.text_field :birthdate, value: pretty_date(@student.birthdate), class: 'form-control date-picker required', placeholder: 'Select birthdate', 'data-date-format' => 'MMM DD, YYYY'
+      .form-group
+        label.control-label.col-lg-2.col-md-3.col-sm-4 Sex
+        .col-md-2.col-sm-3 = f.select :sex, %w{Male Female}, {}, class: 'form-control required'
+        label.control-label.col-lg-2.col-md-3.col-sm-4 Civil Status
+        .col-md-2.col-sm-3 = f.select :civil_status, enum_option_pairs(Student, :civil_status), {}, class: 'form-control required'
+      .form-group
+        label.control-label.col-lg-2.col-md-3.col-sm-4 Address
+        .col-md-6.col-sm-8 = f.text_field :address, class: 'form-control required'
+      .form-group
+        label.control-label.col-lg-2.col-md-3.col-sm-4 Contacts
+        .col-md-6.col-sm-8 = f.text_field :contact_no, class: 'form-control required'
+      .form-group
+        label.control-label.col-lg-2.col-md-3.col-sm-4 Email Address
+        .col-md-6.col-sm-8 = f.email_field :email, class: 'form-control required'
+      hr
+      .form-group
+        label.control-label.col-sm-8 Parent or Guardian Name
+        label.control-label.col-sm-4 Contact
+      .form-group
+        .col-sm-4 = f.text_field :parent_first_name, class: 'form-control', placeholder: 'First Name'
+        .col-sm-4 = f.text_field :parent_last_name, class: 'form-control', placeholder: 'Last Name'
+        .col-sm-4 = f.text_field :parent_contact, class: 'form-control'

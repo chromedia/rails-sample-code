@@ -1,0 +1,22 @@
+= fields_for @student do |f|
+  .education data-desc='Educational Background'
+    = render 'defaults', f: f
+    .form-horizontal.col-md-10.col-md-offset-1
+      .form-group
+        label.control-label.col-md-3 School Last Attended
+        .col-lg-5.col-md-4 = f.text_field :last_attended, class: 'form-control required'
+        label.control-label.col-lg-2.col-md-3 Year Graduated
+        .col-md-2 = select_year @student.college_year, {start_year: 1980, end_year: Date.today.year}, class: 'form-control required', name: 'student[college_year]'
+      .form-group
+        label.control-label.col-md-3 Recognition/Awards
+        .col-lg-5.col-md-4 = f.text_field :recognition, class: 'form-control'
+      .form-group
+        label.control-label.col-md-3 High School
+        .col-lg-5.col-md-4 = f.text_field :hs, class: 'form-control required'
+        label.control-label.col-lg-2.col-md-3 Year Graduated
+        .col-md-2 = select_year @student.hs_year, {start_year: 1980, end_year: Date.today.year}, class: 'form-control required', name: 'student[hs_year]'
+      .form-group
+        label.control-label.col-md-3 Elementary
+        .col-lg-5.col-md-4 = f.text_field :elem, class: 'form-control required'
+        label.control-label.col-lg-2.col-md-3 Year Graduated
+        .col-md-2 = select_year @student.elem_year, {start_year: 1980, end_year: Date.today.year}, class: 'form-control required', name: 'student[elem_year]'

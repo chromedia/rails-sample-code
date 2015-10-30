@@ -1,0 +1,32 @@
+== title "Enrollment-#{step.to_s.titleize}"
+
+doctype html
+html lang='en' ng-app=''
+  head
+    title
+      | MaxRevOne |
+      =< yield(:title).length > 0 ? yield(:title) : 'Online'
+    meta charset='utf-8'
+    meta http-equiv='X-UA-Compatible' content='IE=edge'
+    meta name='viewport' content='width=device-width, initial-scale=1'
+    == stylesheet_link_tag 'application', media: 'all'
+    /script src='https://maps.google.com/maps/api/js?sensor=true'
+    == javascript_include_tag 'application'
+    == stylesheet_link_tag 'enrollment'
+    == javascript_include_tag 'students'
+    == javascript_include_tag 'enrollment'
+    == csrf_meta_tags
+    == render 'layouts/metas'
+  body
+    == render 'layouts/header'
+    = render 'layouts/flash'
+    #enrollment
+      .banner
+        h1 Enrollment
+        h4.description = step.to_s.titleize
+      .container
+        = form_tag wizard_path, method: :put, multipart: true
+          .steps.row
+            == yield
+          = render 'navigation'
+    == render 'layouts/footer'

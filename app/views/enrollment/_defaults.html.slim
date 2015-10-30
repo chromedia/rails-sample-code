@@ -1,0 +1,9 @@
+- if @student.errors.any?
+  .col-lg-12
+    #error_explanation.error.panel
+      h2 = "#{pluralize(@student.errors.count, "error")} prohibited this student from being saved:"
+      ul
+        - @student.errors.full_messages.each do |message|
+          li = message
+= f.hidden_field :enrollment_process
+= hidden_field_tag :student_id, @student.id unless @student.new_record?

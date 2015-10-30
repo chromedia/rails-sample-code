@@ -1,0 +1,33 @@
+= fields_for @student do|f|
+  .terms.col-xs-12.col-md-10.col-md-offset-1 data-desc='Terms and Conditions'
+    = render 'defaults', f: f
+    .wrapper
+      p Max Rev One wants to maintain a high quality service to its reviewees and this memorandum of agreement aims to explain the policies
+              made and implemented by Max Rev One in which every reviewee must understand and comply.
+      p
+        b> Section 1.
+        | Each reviewee is entitled for a full review program (Phase 1-8) as part of the enrollment package. Provided that they avail the
+                said review program upon enrollment.
+      p
+        b> Section 2.
+        | Each reviewee shall pay an initial amount of Php
+        =<> to_currency @season.reservation
+        | as minimum reservation fee deductible to the amount to be paid for
+                the entire review. Reservation fee is non-refundable and non-transferable; for whatever reason.
+      p
+        b> Section 3.
+        | Reviewees who were able to avail a promo of whatever kind shall pay in full on or before the commencement of review
+                classes. Failure to pay in full will forfeit the promo availed of and regular rates will apply.
+      p
+        b> Section 4.
+        | For reviewees who failed to settle their balance will be entitled for consideration through a valid promissory note signed by the parents or guardian of the reviewee after a personal meeting with the management provided that the date stipulated in the promissory note for the settlement of their accounts shall not exceed fifteen (15) days from the start of the review. Students that will discontinue shall pay the number of hours he attended that cannot be covered by his initial payment, subject to computation to be made by the management.
+      p
+        b> Section 5.
+        | Reviewees in good standing in paying their accounts are entitled for the "Money Back Guarantee", under the terms and conditions of the said guarantee, provided that they manifestly show their interest that they want to avail the said guarantee.
+      p
+        b> Section 6.
+        | Reviewees are required and expected to have a complete attendance in all review classes and activities that the review center will be conducting and to pass all the examinations given.
+      p
+        | This is to certify that I thoroughly understand the above-mentioned conditions. It is for the reason that I fully submit myself to the policies set forth by
+        b< MaxRevOne.
+      

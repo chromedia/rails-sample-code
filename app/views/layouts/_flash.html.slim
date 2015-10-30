@@ -1,0 +1,9 @@
+- if notice
+  .alert.alert-info
+    button.close type="button" data-dismiss="alert" aria-hidden="true" &times;
+    = notice
+
+- if alert
+  .alert.alert-warning.alert-dismissable
+    button.close type="button" data-dismiss="alert" aria-hidden="true" &times;
+    = alert

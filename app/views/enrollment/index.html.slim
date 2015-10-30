@@ -1,0 +1,188 @@
+== title 'Enrollment'
+
+#enrollment
+  .banner
+    h1 Enrollment
+    h4.description Package Type
+  .container
+    .steps.row
+      .package-type.active data-desc='Package Type'
+        .wrapper.col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-3.col-sm-10.col-sm-offset-2.col-xs-10.col-xs-offset-1
+          p.text-muted Please choose a package below for the April 2014 review season.
+          .package
+            .radio
+              label
+                input type='radio' name='type' value='Standard'
+                | Full 8 Phase Package - Php 16,000.00
+            p Get the most complete and comprehensive 8-phase review program.
+          .package
+            .radio
+              label
+                input type='radio' name='type' value='Double'
+                | Double Review - Php 22,000.00
+            p Take a two full season review at a discounted price. Learn more, save more.
+          .package
+            .radio
+              label
+                input type='radio' name='type' value='Coaching'
+                | Final Coaching - Php 7,000.00
+            p Need a refresh? Get our Ultimate Final Coaching package.
+      .personal-information data-desc='Personal Information'
+        form
+          .profile-pic.col-lg-2.col-md-3.col-sm-4
+            = image_tag 'user.png', class: 'profile'
+            input type='image' class='hidden'
+            a href='#' Upload Photo
+          .col-lg-10.col-md-9.col-sm-8
+            .form-horizontal
+              .form-group
+                .col-sm-4 = text_field_tag :first_name,'', class: 'form-control required', placeholder: 'First Name'
+                .col-sm-4 = text_field_tag :middle_name,'', class: 'form-control', placeholder: 'Middle Name'
+                .col-sm-4 = text_field_tag :last_name,'', class: 'form-control required', placeholder: 'Last Name'
+            .form-inline
+              .form-group
+                label.control-label Birthdate
+                = text_field_tag :birth_date,'', class: 'form-control required', placeholder: 'Select birthdate', 'data-date-format' => 'MMM DD, YYYY'
+              .form-group
+                .age.control-label
+                  | Age
+                  span< 19
+            .form-inline
+              .form-group
+                label.control-label Sex
+                = select_tag :sex ,options_for_select(%w{Male Female}), class: 'form-control required'
+              .form-group
+                label.control-label Civil Status
+                = select_tag :civil ,options_for_select(%w{Single Married}), class: 'form-control required'
+            .form-horizontal
+              .form-group
+                label.control-label.col-lg-2.col-md-3.col-sm-4 Address
+                .col-md-6.col-sm-8 = text_field_tag :address,'', class: 'form-control'
+              .form-group
+                label.control-label.col-lg-2.col-md-3.col-sm-4 Contacts
+                .col-md-6.col-sm-8 = text_field_tag :contacts,'', class: 'form-control'
+              .form-group
+                label.control-label.col-lg-2.col-md-3.col-sm-4 Email Address
+                .col-md-6.col-sm-8 = text_field_tag :email,'', class: 'form-control'
+              hr
+              .form-group
+                label.control-label.col-sm-8 Parent or Guardian Name
+                label.control-label.col-sm-4 Contact
+              .form-group
+                .col-sm-4 = text_field_tag :p_first_name, '', class: 'form-control', placeholder: 'First Name'
+                .col-sm-4 = text_field_tag :p_last_name, '', class: 'form-control', placeholder: 'Last Name'
+                .col-sm-4 = text_field_tag :p_contact, '', class: 'form-control'
+      .education data-desc='Educational Background'
+        form.form-horizontal.col-md-10.col-md-offset-1
+          .form-group
+            label.control-label.col-md-3 School Last Attended
+            .col-lg-5.col-md-4 = text_field_tag :college,'', class: 'form-control required'
+            label.control-label.col-lg-2.col-md-3 Year Graduated
+            .col-md-2 = text_field_tag :college_year,'', class: 'form-control required'
+          .form-group
+            label.control-label.col-md-3 Recognition/Awards
+            .col-lg-5.col-md-4 = text_field_tag :school,'', class: 'form-control required'
+          .form-group
+            label.control-label.col-md-3 High School
+            .col-lg-5.col-md-4 = text_field_tag :high_school, '', class: 'form-control required'
+            label.control-label.col-lg-2.col-md-3 Year Graduated
+            .col-md-2 = text_field_tag :high_school_year, '', class: 'form-control required'
+          .form-group
+            label.control-label.col-md-3 Elementary
+            .col-lg-5.col-md-4 = text_field_tag :elementary, '', class: 'form-control required'
+            label.control-label.col-lg-2.col-md-3 Year Graduated
+            .col-md-2 = text_field_tag :elementary_year, '', class: 'form-control required'
+      .others data-desc='Other Information'
+        form.form-horizontal.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.col-xs-12
+          .form-group
+            label.control-label.col-xs-2
+              i.fa.fa-facebook-square
+            .col-xs-5 = text_field_tag :facebook,'', class: 'form-control', placeholder: 'Facebook'
+          .form-group
+            label.control-label.col-xs-2
+              i.fa.fa-twitter-square
+            .col-xs-5 = text_field_tag :twitter,'', class: 'form-control', placeholder: 'Twitter'
+          .form-group
+            label.control-label.col-xs-2
+              i.fa.fa-linkedin-square
+            .col-xs-5 = text_field_tag :linkedin,'', class: 'form-control', placeholder: 'Linkedin'
+          .form-group
+            label.control-label.col-xs-2 Referred by
+            .col-xs-5 = text_field_tag :first_name,'', class: 'form-control', placeholder: 'First name'
+            .col-xs-5 = text_field_tag :last_name,'', class: 'form-control', placeholder: 'Last name'
+          .form-group
+            label.control-label.col-xs-12.auto-width Why did you choose MaxRevOne?
+          .form-group
+            .col-xs-12 = text_area_tag :reason,'', class: 'form-control'
+      .terms.col-xs-12.col-md-10.col-md-offset-1 data-desc='Terms and Conditions'
+        .wrapper
+          p Max Rev One wants to maintain a high quality service to its reviewees and this memorandum of agreement aims to explain the policies
+            made and implemented by Max Rev One in which every reviewee must understand and comply.
+          p
+            b> Section 1.
+            | Each reviewee is entitled for a full review program (Phase 1-8) as part of the enrollment package. Provided that they avail the
+              said review program upon enrollment.
+          p
+            b> Section 2.
+            | Each reviewee shall pay an initial amount of Php 3,000 as minimum reservation fee deductible to the amount to be paid for
+              the entire review. Reservation fee is non-refundable and non-transferable; for whatever reason.
+          p
+            b> Section 3.
+            | Reviewees who were able to avail a promo of whatever kind shall pay in full on or before the commencement of review
+              classes. Failure to pay in full will forfeit the promo availed of and regular rates will apply.
+          p
+            b> Section 4.
+            | For reviewees who failed to settle their balance will be entitled for consideration though a valid promissory note for the settlement of their accounts shall not exceed fifteen (15) days from the start of the review. Students that will discontinue shall pay the number of hours he attended that cannot be covered by his initial payment, subject to computation to be made by the management.
+          p
+            b> Section 5.
+            | Reviewees in good standing in paying their accounts are entitled for the "Money Back Guarantee," under the terms and conditions of the said guarantee, provided that they manifestly show their interest that they want to avai said guarantee.
+          p
+            b> Section 6.
+            | Reviewees are required and expected to have a complete attendance in all review classes and activities that the review center will be conducting and to pass all the examinations given.
+      .summary.col-xs-12.col-md-10.col-md-offset-1 data-desc='Payment'
+        p Here’s the summary of your payment:
+        table
+          tr
+            td October 2014 Review Fee
+            td -
+            td P 16,000.00
+          tr
+            td Disccount
+            td -
+            td 0%
+          tr
+            td Total
+            td -
+            td P 16,000.00
+        p
+          | We support online payment of reservation fee (downpayment) of
+          b<> P 3,000
+          | to confirm your application. Should you
+            wish to pay manually, you may Skip the button and do payment at our office within three days to verify your
+            enrollment.
+        p MaxRevOne is using PayPal for online payment processing. You will be taken to a secured PayPal page
+          once you choose Pay Now via PaypPal to process your payment.
+      .confirmation.col-xs-12.col-sm-8.col-sm-offset-2 data-desc='Confirmation'
+        p
+          b Thank you
+        p Thank you for choosing MaxRevOne.
+        p Your application is now complete. Please confirm your payment at our office within 3 days to avoid
+          expiration of your application.
+        p
+          | Your reference number is
+          b.reference_no< 3215 568 227
+
+
+    .navigation.row
+      .text-right.col-lg-4.col-md-3.col-xs-2
+        a.btn.btn-default.previous href='#' Cancel
+      .indicators.col-lg-4.col-md-6.col-xs-8
+        .wrapper
+          span.line
+          - (1..7).each do|i|
+            span.indicator class=('active' if i==1)
+      .text-left.col-lg-4.col-md-3.col-xs-2
+        span.paypal.hidden
+          a.btn.btn-primary href='#' Paypal
+          span or
+        a.btn.btn-primary.next href='#' Next

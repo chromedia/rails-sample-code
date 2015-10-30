@@ -1,0 +1,30 @@
+= fields_for @student do |f|
+  .summary.col-xs-12.col-md-10.col-md-offset-1 data-desc='Payment'
+    = render 'defaults', f: f
+    p Here’s the summary of your payment:
+    table
+      - @student.current_invoices.each do |invoice|
+        tr
+          td
+            = "#{invoice.review_season} | Review Fee (#{invoice.package}) - #{invoice.description}"
+          td -
+          td = "P #{invoice.description == 'First Timer' ? @season.full_review : to_currency(invoice.amount)}"
+        - unless invoice.package == 'Double'
+          tr
+            td Discount
+            td -
+            td = "P #{invoice.description == 'First Timer' ? to_currency(@season.full_review - invoice.amount) : 0}"
+      tr
+        td Total
+        td -
+        td = "P #{to_currency @student.total_current_amount}"
+    p
+      | We support online payment of reservation fee (down payment) of
+      b<
+        | Php
+        =<> to_currency @season.reservation
+      | to confirm your application. Should you
+              wish to pay manually, you may Skip the button and do payment at our office within three days to verify your
+              enrollment.
+    p MaxRevOne is using PayPal for online payment processing. You will be taken to a secured PayPal page
+            once you choose Pay Now via PayPal to process your payment.
